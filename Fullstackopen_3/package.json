@@ -1,0 +1,27 @@
+{
+  "name": "fullstackopen_3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:puhelinluettelo": "cd puhelinluettelo && npm start",
+    "dev:puhelinluettelo": "cd puhelinluettelo && npm run dev",
+    "start:testi": "cd testi && npm start",
+    "dev:testi": "cd testi && npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BigDsaur/Fullstackopen_3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/BigDsaur/Fullstackopen_3/issues"
+  },
+  "homepage": "https://github.com/BigDsaur/Fullstackopen_3#readme",
+  "dependencies": {
+    "morgan": "^1.10.1"
+  }
+}

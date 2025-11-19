@@ -7,7 +7,8 @@
     "start:puhelinluettelo_backend": "cd Fullstackopen_3/puhelinluettelo_backend && npm start",
     "dev:puhelinluettelo_backend": "cd Fullstackopen_3/puhelinluettelo_backend && npm run dev",
     "start:testi": "cd Fullstackopen_3/testi && npm start",
-    "dev:testi": "cd Fullstackopen_3/testi && npm run dev"
+    "dev:testi": "cd Fullstackopen_3/testi && npm run dev",
+    "dev:puhelinluettelo_frontend": "cd Fullstackopen_3/puhelinluettelo_frontend && npm run dev"
   },
   "repository": {
     "type": "git",

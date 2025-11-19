@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:puhelinluettelo": "cd Fullstackopen_3/puhelinluettelo && npm start",
-    "dev:puhelinluettelo": "cd Fullstackopen_3/puhelinluettelo && npm run dev",
+    "start:puhelinluettelo_backend": "cd Fullstackopen_3/puhelinluettelo_backend && npm start",
+    "dev:puhelinluettelo_backend": "cd Fullstackopen_3/puhelinluettelo_backend && npm run dev",
     "start:testi": "cd Fullstackopen_3/testi && npm start",
     "dev:testi": "cd Fullstackopen_3/testi && npm run dev"
   },

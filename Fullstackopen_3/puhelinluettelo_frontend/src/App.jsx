@@ -17,7 +17,8 @@ const App = () => {
       .getAll()
       .then(response => {
         console.log('promise fulfilled')
-        setPersons(response.data)
+        console.log(response)
+        setPersons(response)
       })
       .catch(error => {
         console.error('Error fetching persons:', error)
@@ -48,11 +49,11 @@ const App = () => {
 
     personservice
       .create(personObject)
-      .then(response => {
-        setPersons(prev => prev.concat(response.data)) // response.data has real id
-        setNewName('')
-        setNewNumber('')
-        showNotification(`Added ${response.data.name}`, 'success')
+      .then(returnedPerson => {
+        setPersons(prev => prev.concat(returnedPerson)); // correct
+        setNewName('');
+        setNewNumber('');
+        showNotification(`Added ${returnedPerson.name}`, 'success');
       })
       .catch(() => {
         showNotification('Error adding person', 'error')

@@ -1,3 +1,5 @@
+import Filter from './Filter'
+
 const Phonebook = ({
   persons,
   filter,
@@ -9,9 +11,11 @@ const Phonebook = ({
   onAddPerson,
   ondeleteperson
 }) => {
-  const filteredPersons = persons.filter(person =>
+  const filteredPersons = (persons ?? [])
+  .filter(p => p && p.name)
+  .filter(person =>
     person.name.toLowerCase().includes(filter.toLowerCase())
-  )
+  );
 
   return (
     <div>

@@ -6,10 +6,7 @@
   "scripts": {
     "start:puhelinluettelo_backend": "cd Fullstackopen_3/puhelinluettelo_backend && npm start",
     "dev:puhelinluettelo_backend": "cd Fullstackopen_3/puhelinluettelo_backend && npm run dev",
-    "start:testi_backend": "cd Fullstackopen_3/testi_backend && npm start",
-    "dev:testi_backend": "cd Fullstackopen_3/testi_backend && npm run dev",
-    "dev:puhelinluettelo_frontend": "cd Fullstackopen_3/puhelinluettelo_frontend && npm run dev",
-    "dev:testi_frontend": "cd Fullstackopen_3/testi_frontend && npm run dev"
+    "dev:puhelinluettelo_frontend": "cd Fullstackopen_3/puhelinluettelo_frontend && npm run dev"
   },
   "repository": {
     "type": "git",

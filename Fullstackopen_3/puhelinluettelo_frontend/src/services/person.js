@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = 'https://fullstackopen-3-5-backend.onrender.com/api/persons'
+const baseUrl = '/api/persons'
 
 const getAll = () => {
   const request = axios.get(baseUrl)

@@ -7,11 +7,12 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "dev": "node --watch index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "build:ui": "rm -rf dist && cd ../puhelinluettelo_frontend && npm run build && cp -r dist ../puhelinluettelo_backend/"
-  },
+  "dev": "node --watch index.js",
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "start": "node index.js",
+  "build:ui": "rm -rf dist && cd ../puhelinluettelo_frontend && npm install && npm run build && cp -r dist ../puhelinluettelo_backend/"
+}
+,
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.1.0",

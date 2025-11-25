@@ -53,35 +53,29 @@ app.put('/api/persons/:id', (req, res, next) => {
   const options = { new: true, runValidators: true, context: 'query' }
 
   Person.findByIdAndUpdate(req.params.id, { number }, options)
-    .then(updatedPerson => {
-      if (updatedPerson) {
-        res.json(updatedPerson)
-      } else {
-        res.status(404).end()
-      }
-    })
+    .then(updatedPerson => res.json(updatedPerson))
     .catch(error => next(error))
 })
 
 app.post('/api/persons', (req, res, next) => {
   const { name, number } = req.body
 
-  if (!name || !number) {
-    return res.status(400).json({ error: 'name or number missing' })
-  }
-
   const person = new Person({ name, number })
 
-  person.save()
-    .then(savedPerson => res.json(savedPerson))
+  person
+    .save()
+    .then(savedPerson => {
+      res.json(savedPerson)
+    })
     .catch(error => next(error))
 })
+
 
 const errorHandler = (error, req, res, next) => {
   console.error(error.message)
 
-  if (error.name === 'CastError') {
-    return res.status(400).send({ error: 'malformatted id' })
+  if (error.name === 'ValidationError') {
+    return res.status(400).json({ error: error.message })
   }
 
   next(error)

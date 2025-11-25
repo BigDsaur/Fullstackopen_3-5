@@ -62,7 +62,6 @@ app.post('/api/persons', (req, res, next) => {
     .catch(error => next(error))
 })
 
-// Error handling middleware
 const errorHandler = (error, req, res, next) => {
   console.error(error.message)
 
@@ -79,3 +78,5 @@ const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
+
+// VITTU SEHÄN TOIMIIII!!!

@@ -6,7 +6,7 @@ export default [
   js.configs.recommended,
   {
     files: ['**/*.js'],
-    ignores: ['dist/**'],
+    ignores: ['dist/**', 'node_modules/**'],
     languageOptions: {
       sourceType: 'commonjs',
       globals: { ...globals.node },

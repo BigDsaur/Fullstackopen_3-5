@@ -24,7 +24,7 @@ const Person = mongoose.model('Person', personSchema)
 
 if (process.argv.length === 3) {
   Person.find({}).then(result => {
-    console.log("puhelinluettelo:")
+    console.log('puhelinluettelo:')
     result.forEach(p => {
       console.log(`${p.name} ${p.number}`)
     })
@@ -47,6 +47,6 @@ else if (process.argv.length === 5) {
 }
 
 else {
-  console.log("invalid arguments")
+  console.log('invalid arguments')
   mongoose.connection.close()
 }

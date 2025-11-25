@@ -24,10 +24,9 @@ app.get('/api/persons', (req, res) => {
 app.get('/info', (req, res, next) => {
   Person.countDocuments({})
     .then(count => {
-      const date = new Date()
       res.send(`
         <p>Puhelinluettelossa on ${count} henkilön tiedot</p>
-        <p>${date}</p>
+        <p>${new Date()}</p>
       `)
     })
     .catch(error => next(error))
@@ -45,6 +44,22 @@ app.get('/api/persons/:id', (req, res, next) => {
 app.delete('/api/persons/:id', (req, res, next) => {
   Person.findByIdAndDelete(req.params.id)
     .then(() => res.status(204).end())
+    .catch(error => next(error))
+})
+
+app.put('/api/persons/:id', (req, res, next) => {
+  const { number } = req.body
+
+  const options = { new: true, runValidators: true, context: 'query' }
+
+  Person.findByIdAndUpdate(req.params.id, { number }, options)
+    .then(updatedPerson => {
+      if (updatedPerson) {
+        res.json(updatedPerson)
+      } else {
+        res.status(404).end()
+      }
+    })
     .catch(error => next(error))
 })
 

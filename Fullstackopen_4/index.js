@@ -1,8 +1,14 @@
 const app = require('./app')
+const http = require('http')
 const config = require('./utils/config')
 const logger = require('./utils/logger')
 
-const PORT = config.PORT
-app.listen(PORT, () => {
-  logger.info(`Server running on port ${PORT}`)
-})
+const server = http.createServer(app)
+
+if (process.env.NODE_ENV !== 'test') {
+  server.listen(config.PORT, () => {
+    logger.info(`Server running on port ${config.PORT}`)
+  })
+}
+
+module.exports = server

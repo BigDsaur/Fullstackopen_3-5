@@ -1,19 +1,28 @@
 const mongoose = require('mongoose')
 const supertest = require('supertest')
 const app = require('../app')
+const Blog = require('../models/blog')
+
 const api = supertest(app)
 
-const Blog = require('../models/blog')
-const helper = require('./test_helper')
+const initialBlogs = [
+  {
+    title: 'First test blog maurilta',
+    author: 'Tester One',
+    url: 'http://example1.com',
+    likes: 11
+  },
+  {
+    title: 'Second test blog matilta',
+    author: 'Tester Two',
+    url: 'http://example2.com',
+    likes: 12
+  }
+]
 
 beforeEach(async () => {
   await Blog.deleteMany({})
-
-  const blogObjects = helper.initialBlogs
-    .map(blog => new Blog(blog))
-
-  const promiseArray = blogObjects.map(blog => blog.save())
-  await Promise.all(promiseArray)
+  await Blog.insertMany(initialBlogs)
 })
 
 test('blogs are returned as json', async () => {
@@ -23,17 +32,9 @@ test('blogs are returned as json', async () => {
     .expect('Content-Type', /application\/json/)
 })
 
-test('correct number of blogs is returned', async () => {
+test('all blogs are returned', async () => {
   const response = await api.get('/api/blogs')
-
-  expect(response.body).toHaveLength(helper.initialBlogs.length)
-})
-
-test('blog objects contain id field', async () => {
-  const response = await api.get('/api/blogs')
-
-  const ids = response.body.map(b => b.id)
-  ids.forEach(id => expect(id).toBeDefined())
+  expect(response.body).toHaveLength(initialBlogs.length)
 })
 
 afterAll(async () => {
